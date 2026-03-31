@@ -10,6 +10,7 @@ dist/
 # Ignore virtual environments
 venv/
 .env/
+.env
 
 # Ignore OS-specific files
 .DS_Store

@@ -17,6 +17,13 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+## Environment Configuration
+
+You can fully customize the script's behavior by modifying the root `.env` file!
+
+- `ENVIRONMENT`: Marks the execution context (`development`, `production`, `testing`).
+- `LOG_LEVEL`: Changes exactly how much logging the script generates on the console (`DEBUG`, `INFO`, `WARNING`, `ERROR`). Set this to `DEBUG` when actively debugging!
+
 ## How to execute
 
 You can run the script using either the Graphical Interface (Web App) or the Command Line Interface (CLI):
