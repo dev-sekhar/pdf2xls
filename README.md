@@ -1,6 +1,6 @@
-# PDF to Excel Table Extractor
+# pdf2xls
 
-This module contains a Python script (`pdf_to_excel.py`) that uses `pdfplumber` to extract tables from PDF documents and save them directly into multiple sheets of an Excel file.
+This module contains a Python utility that uses `pdfplumber` to extract tables from PDF documents and save them directly into multiple sheets of an Excel file.
 
 ## Prerequisites
 
@@ -19,28 +19,29 @@ pip install -r requirements.txt
 
 ## How to execute
 
-You can run the script in two ways:
+You can run the script using either the Graphical Interface (Web App) or the Command Line Interface (CLI):
 
-### 1. Interactive Mode
-Run the script without any arguments. It will prompt you to type in the name of your PDF file:
+### 1. Graphical UI (Web App)
+You can launch a clean, interactive GUI right in your browser!
+```bash
+streamlit run app.py
+```
+This will open a page where you can upload your PDF directly, extract its tables, and click a button to download the resulting Excel file straight to your machine.
+
+### 2. Interactive CLI Mode
+Run the script without any arguments. It will prompt you to type in the name of your PDF file and the output directory:
 ```bash
 python pdf_to_excel.py
 ```
-**Example output:**
-```
-Please enter the path or name of the PDF file to convert: ASM_41447.pdf
-Found 1 table(s). Saving to ASM_41447_tables.xlsx...
-Done! Saved to ASM_41447_tables.xlsx
-```
 
-### 2. Command Line Mode
-Pass the PDF filename (and optionally an output Excel filename) as command line arguments for quicker execution:
+### 3. Command Line Arguments
+Pass the PDF filename (and optionally an output directory path) as command line arguments for quicker execution:
 ```bash
 python pdf_to_excel.py your_document.pdf
 ```
 ```bash
-# With a custom output file name:
-python pdf_to_excel.py your_document.pdf custom_output_name.xlsx
+# With a custom output folder:
+python pdf_to_excel.py your_document.pdf "C:/My/Output/Folder/"
 ```
 
 ## Automated Testing
@@ -51,4 +52,3 @@ You can run the test like this:
 python -m unittest test_pdf_to_excel_auto.py
 ```
 This test will generate a dummy PDF table on the fly and verify that it parses cleanly into Excel.
-# pdf2xls
