@@ -36,19 +36,18 @@ if uploaded_file is not None:
 
     # Step 1: Extract tables block
     if st.session_state.extracted_tables is None:
-        if st.button("Extract Tables", type="primary"):
-            with st.spinner("Extracting tables natively (this may take a moment)..."):
-                try:
-                    all_tables = get_tables_from_pdf(uploaded_file)
-                    
-                    if not all_tables:
-                        st.warning("No tables were found in this PDF.")
-                    else:
-                        # Store extracted tables to our persistent state
-                        st.session_state.extracted_tables = all_tables
-                        st.rerun()  # Refresh to hide the button and show the editor
-                except Exception as e:
-                    st.error(f"An error occurred: {e}")
+        with st.spinner("Automatically extracting tables native (this may take a moment)..."):
+            try:
+                all_tables = get_tables_from_pdf(uploaded_file)
+                
+                if not all_tables:
+                    st.warning("No tables were found in this PDF.")
+                else:
+                    # Store extracted tables to our persistent state
+                    st.session_state.extracted_tables = all_tables
+                    st.rerun()  # Refresh to hide the button and show the editor
+            except Exception as e:
+                st.error(f"An error occurred: {e}")
 
     # Step 2: Display tables in interactive data editors
     if st.session_state.extracted_tables is not None:
