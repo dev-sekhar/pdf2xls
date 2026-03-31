@@ -2,6 +2,14 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 from reportlab.lib import colors
 
+"""
+create_dummy_pdf.py
+-------------------
+Purpose: A purely internal testing utility that builds robust, artificial 
+PDF files containing mock tables to safely exercise the extraction logic
+during continuous integration / automated testing.
+"""
+
 def create_pdf_with_table(filename):
     doc = SimpleDocTemplate(filename, pagesize=letter)
     elements = []

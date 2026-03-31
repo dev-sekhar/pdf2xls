@@ -17,6 +17,18 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+## Architecture Breakdown
+
+To keep the codebase modular, robust, and highly maintainable, logic is cleanly encapsulated across several decoupled files:
+
+- **`app.py`**: The main entrypoint for the Streamlit Web UI. Includes advanced row/column schema editors.
+- **`cli.py`**: The Command Line entrypoint for pure background terminal execution without a browser.
+- **`src/config.py`**: Controls global environments (`development`, `production`) and logging levels dynamically.
+- **`src/extractor.py`**: The core AI that securely parses PDF pages using `pdfplumber` and isolates dataframes.
+- **`src/exporter.py`**: The compiling driver that writes pure `pandas` DataFrames safely into `.xlsx` using `openpyxl`.
+- **`test_pdf_to_excel_auto.py`**: The continuous-integration automated test suite.
+- **`create_dummy_pdf.py`**: A purely mock-testing script that generates fake tables so tests don't require actual user data.
+
 ## Environment Configuration
 
 You can fully customize the script's behavior by modifying the root `.env` file!
@@ -38,17 +50,17 @@ This will open a page where you can upload your PDF directly, extract its tables
 ### 2. Interactive CLI Mode
 Run the script without any arguments. It will prompt you to type in the name of your PDF file and the output directory:
 ```bash
-python pdf_to_excel.py
+python cli.py
 ```
 
 ### 3. Command Line Arguments
 Pass the PDF filename (and optionally an output directory path) as command line arguments for quicker execution:
 ```bash
-python pdf_to_excel.py your_document.pdf
+python cli.py your_document.pdf
 ```
 ```bash
 # With a custom output folder:
-python pdf_to_excel.py your_document.pdf "C:/My/Output/Folder/"
+python cli.py your_document.pdf "C:/My/Output/Folder/"
 ```
 
 ## Automated Testing

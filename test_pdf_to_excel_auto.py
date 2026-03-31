@@ -1,7 +1,17 @@
 import unittest
 import os
 import pandas as pd
-from pdf_to_excel import extract_tables_to_excel
+
+"""
+test_pdf_to_excel_auto.py
+-------------------------
+Purpose: The automated test suite for the extraction module.
+It programmatically triggers `create_dummy_pdf.py` to generate a fake PDF,
+parses it using the `src` microservices, and verifies the structural logic without 
+requiring external user-provided PDFs.
+"""
+
+from cli import extract_tables_to_excel
 from create_dummy_pdf import create_pdf_with_table
 
 class TestPDFToExcel(unittest.TestCase):
