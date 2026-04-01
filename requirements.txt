@@ -1,6 +1,6 @@
 --only-binary=:all:
 pdfplumber==0.10.3
-pandas==2.2.1
+pandas==2.3.3
 openpyxl==3.1.2
 reportlab==4.0.9
 streamlit==1.32.0
